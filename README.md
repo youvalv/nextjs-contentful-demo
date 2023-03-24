@@ -1,8 +1,8 @@
-# Stackbit Tutorial [Next.js + Contentful]
+# Stackbit Developer Demo [Next.js + Contentful]
 
 ![Tutorial Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb-v2.png)
 
-ℹ️ This project is used as a starting point for [a getting started tutorial](https://docs.stackbit.com/getting-started/nextjs-contentful) using Next.js as the framework and Contentful as the content source. If you would like to create a new project with Contentful as the content source, use [the Contentful starter](https://github.com/stackbit-themes/contentful-starter).
+A demo project to showcase the basics of Stackbit to new developers.
 
 ## Prerequisites
 
@@ -11,25 +11,13 @@ Before you begin, please make sure you have the following:
 - Contentful account
 - Node v14 or later
 
-## Setup Instructions
+## Contentful Setup
 
-The following sections take you through the process of getting this project set up and wired up to Contentful so you can begin the tutorial.
-
-### Create New Project
-
-Use the `create-stackbit-app` command to create a new project:
-
-    npx create-stackbit-app@latest --example tutorial-nextjs-contentful
-
-This will create a new instance of this project in a `tutorial-nextjs-contentful` directory.
-
-### Create Contentful Space
-
-After signing into Contentful, create a new space. Note that if you already have an active Contentful account, you may want to [create an organization](https://app.contentful.com/account/organizations/new) to place your new space.
+After cloning the project and installing dependencies, create a new Contentful space.
 
 ### Generate API Tokens
 
-After creating the Contentful space, copy `.env.example` to `.env` and fill in the appropriate values.
+Create API tokens for your new space. Then copy `.env.example` to `.env` and fill in the appropriate values.
 
 ```bash
 CONTENTFUL_SPACE_ID="..."
@@ -52,6 +40,16 @@ Now you should be able to run the Next.js development server and see your conten
 
 Visit `localhost:3000` and you should see the example content you imported into your new Contentful space. Now you can continue with the tutorial!
 
-## Support
+## Running Stackbit
 
-If you get stuck along the way, [drop into our Discord server](https://discord.gg/HUNhjVkznH) and send a message in the `#documentation` or `#help` channels.
+Make sure the CLI is installed.
+
+    npm install -g @stackbit/cli
+
+Start the Stackbit development server.
+
+    stackbit dev --port 3000
+
+## Disabling Annotations
+
+Annotations are enabled by default. To disabled set `DISABLE_ANNOTATIONS` in `.env` to any string value. (Note that `DISABLE_ANNOTATIONS="false"` will still disable annotations.)
