@@ -1,5 +1,5 @@
 import Markdown from 'markdown-to-jsx';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Button } from './Button.jsx';
 
 const themeClassMap = {
