@@ -1,4 +1,5 @@
 import Markdown from 'markdown-to-jsx';
+import { fieldPath, objectId } from '../utils/annotations.js';
 
 const themeClassMap = {
     primary: 'bg-violet-800 text-white',
@@ -7,11 +8,13 @@ const themeClassMap = {
 
 export const Stats = (props) => {
     return (
-        <div className={`py-24 px-12 text-center ${themeClassMap[props.theme] ?? themeClassMap['dark']}`}>
+        <div className={`py-24 px-12 text-center ${themeClassMap[props.theme] ?? themeClassMap['dark']}`} {...objectId(props.id)}>
             <div className="mx-auto">
                 <div className="max-w-2xl mx-auto mb-16">
-                    <h2 className="mb-4 text-4xl sm:text-5xl">{props.heading}</h2>
-                    <Markdown options={{ forceBlock: true }} className="sm:text-xl">
+                    <h2 className="mb-4 text-4xl sm:text-5xl" {...fieldPath('heading')}>
+                        {props.heading}
+                    </h2>
+                    <Markdown options={{ forceBlock: true }} className="sm:text-xl" {...fieldPath('body')}>
                         {props.body}
                     </Markdown>
                 </div>
@@ -30,9 +33,13 @@ const itemThemeClassMap = {
 
 const StatItem = (props) => {
     return (
-        <div className={`px-4 py-8 rounded-md ${itemThemeClassMap[props.theme] ?? itemThemeClassMap['dark']}`}>
-            <div className="mb-3 text-3xl sm:text-4xl">{props.value}</div>
-            <div className="text-sm uppercase">{props.label}</div>
+        <div className={`px-4 py-8 rounded-md ${itemThemeClassMap[props.theme] ?? itemThemeClassMap['dark']}`} {...objectId(props.id)}>
+            <div {...fieldPath('value')} className="mb-3 text-3xl sm:text-4xl">
+                {props.value}
+            </div>
+            <div {...fieldPath('label')} className="text-sm uppercase">
+                {props.label}
+            </div>
         </div>
     );
 };

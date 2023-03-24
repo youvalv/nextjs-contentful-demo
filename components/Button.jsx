@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { fieldPath, objectId } from '../utils/annotations.js';
 
 const themeClassMap = {
     default: 'border-violet-800 bg-violet-800 text-white hover:bg-violet-600 hover:border-violet-600',
@@ -10,8 +11,9 @@ export const Button = (props) => {
         <Link
             href={props.url}
             className={`py-3 px-8 inline-block border rounded-md transition-all duration-300 ${themeClassMap[props.theme] ?? themeClassMap['default']}`}
+            {...objectId(props.id)}
         >
-            {props.label}
+            <span {...fieldPath('label')}>{props.label}</span>
         </Link>
     );
 };
