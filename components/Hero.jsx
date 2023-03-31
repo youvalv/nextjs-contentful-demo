@@ -15,7 +15,8 @@ export const Hero = (props) => {
                 <div className="max-w-xl py-20 mx-auto lg:shrink-0">
                     <h1 className="mb-6 text-5xl leading-tight" {...fieldPath('heading')}>
                         {props.heading}
-                    </h1>  
+                    </h1>
+                    <p>Hello Juan!</p>
                     {props.body && (
                         <Markdown options={{ forceBlock: true }} className="mb-6 text-lg" {...fieldPath('body')}>
                             {props.body}
