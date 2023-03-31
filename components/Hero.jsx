@@ -16,7 +16,6 @@ export const Hero = (props) => {
                     <h1 className="mb-6 text-5xl leading-tight" {...fieldPath('heading')}>
                         {props.heading}
                     </h1>
-                    <p>Hello Juan!</p>
                     {props.body && (
                         <Markdown options={{ forceBlock: true }} className="mb-6 text-lg" {...fieldPath('body')}>
                             {props.body}
